@@ -40,6 +40,13 @@ public:
 	//Print the List (from Start to End) onto the console
 	void Traverse()
 	{
+
+		if (m_Size == 0)
+		{
+			std::cout << "[WARNING]: LIST IS EMPTY. CANNOT TRAVERSE" << std::endl;
+			return; //Exit the current function, Cause No Need to Continue (to Traversal)
+		}
+		
 		// Explaining the Loop
 		// for (
 		//		TempNode which will Store the Address that the m_Head have; 
@@ -50,6 +57,13 @@ public:
 		{
 			std::cout << TempNode->m_Data << "  ";
 		}
+		std::cout << std::endl;
+	}
+
+public:
+	int Size()
+	{
+		return m_Size;
 	}
 
 };
@@ -59,6 +73,10 @@ public:
 int main()
 {
 	LinkedList List;
+	
+	std::cout << "Size: " << List.Size() << std::endl; // Size should be 0
+	List.Traverse();
+
 	List.PushBack(13);
 	List.PushBack(14);
 	List.PushBack(15);
@@ -67,9 +85,11 @@ int main()
 	List.PushBack(18);
 
 	List.Traverse();
+	std::cout << "Size: " << List.Size() << std::endl; // Size should be 6
 	
 	List.PushBack(19);
 	List.PushBack(20);
 
 	List.Traverse();
+	std::cout << "Size: " << List.Size() << std::endl; // Size should be 8
 }
