@@ -96,6 +96,7 @@ public:
 
 int main()
 {
+    //LLL
     LinkedList List;
 
     std::cout << "Size: " << List.Size() << std::endl; // Size should be 0
